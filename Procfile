@@ -1,1 +1,1 @@
-web: gunicorn project.wsgi --log-file -
+web: gunicorn quiet-oasis-82153.wsgi --log-file -
