@@ -37,7 +37,7 @@ SECRET_KEY = 'suf+r52_8k!3ls2wv#$g$al^7khy4#b&jejl*3pa7$*-xk+nbe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://quiet-oasis-82153.herokuapp.com']
 
 
 
@@ -72,11 +72,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE_CLASSES = (
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-)
+
 
 ROOT_URLCONF = 'application.urls'
 
