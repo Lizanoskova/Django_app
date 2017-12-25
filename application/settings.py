@@ -37,7 +37,7 @@ SECRET_KEY = 'suf+r52_8k!3ls2wv#$g$al^7khy4#b&jejl*3pa7$*-xk+nbe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://quiet-oasis-82153.herokuapp.com']
+ALLOWED_HOSTS = ['quiet-oasis-82153.herokuapp.com']
 
 
 
