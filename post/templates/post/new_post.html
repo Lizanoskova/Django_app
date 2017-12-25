@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+<h1>Создание нового поста</h1>
+{% endblock %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+ <form action="" method="post">
+
+     {{ form }}
+     {% csrf_token %}
+     <input type="submit" class="btn btn-primary" value="Save">
+ </form>
+
+{% endblock %}

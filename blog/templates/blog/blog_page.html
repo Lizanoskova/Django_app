@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}
+    <div class="blog-header">
+        <div class="container">
+          <h1 class="blog-title">Posts of {{blog.title}}</h1>
+        </div>
+      </div>
+{% endblock %}
+
+
+{% block content %}
+
+{% for post in blog.posts.all %}
+ <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+       <a href="{% url "posts:currentpost" pk=post.pk %}" class="list-group-item ">{{ post.title }}</a>
+
+             <!--<a><span id="likes-{{ post.id }}"> </span>{{ post.likes.count }}</a>-->
+             <!-- <p class="pull-right"><a class="btn ajaxlike" href="{% url "posts:postlikes" pk=post.id %}"></a></p>-->
+                <!--<button class="btn ajaxlike" data-url="{% url "posts:postlikes" pk=post.id %}" data-postid="{{ post.id }}">Лайкнуть</button>-->
+              <span>Количество лайков поста:</span>
+              <div class="pull-right postLike">
+                <div class="postLikeCounter"> {{ post.likes.count }}</div>
+                  {% if user.is_authenticated %}
+                <a class="postLikeLink" href="{% url "posts:postlikes" pk=post.id %}"> Like </a>
+                  {% else %}
+                  {% endif %}
+              </div>
+
+
+
+
+              <a href="{% url "posts:editpost" pk=post.pk%}" class = "editLink" >Edit</a>
+
+
+       <!--<div><a href="{% url "blogs:currentblog" pk=blog.pk %}">{{ blog.title }}</a></div>-->
+          </div>
+ </div>
+    {% endfor %}
+{% if user.is_authenticated %}
+        <h3>Создать пост</h3>
+ <form action="" method="post">
+     {% render_field form.title class+="form-control" placeholder="Введите заголовок" %}
+     {% render_field form.text class+="form-control" placeholder="Введите текст" %}
+     <!-- {{ form }} -->
+     {% csrf_token %}
+     <input type="submit" class="btn btn-primary" value="Save">
+ </form>
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock%}

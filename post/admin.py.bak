@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+
+
+from __future__ import absolute_import
+from django.contrib import admin
+from .models import Post
+
+class PostAdmin(admin.ModelAdmin):
+
+    list_display = u'id', u'title',
+    list_editable = u'title',
+PostAdmin = admin.register(Post)(PostAdmin)

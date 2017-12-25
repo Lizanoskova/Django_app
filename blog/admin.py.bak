@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+
+
+from __future__ import absolute_import
+from django.contrib import admin
+from .models import Blog
+
+
+class BlogAdmin(admin.ModelAdmin):
+
+    list_display = u'id', u'title',
+    list_editable = u'title',
+BlogAdmin = admin.register(Blog)(BlogAdmin)

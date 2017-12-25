@@ -1,0 +1,108 @@
+{% load static%}
+
+<!DOCTYPE html>
+<head>
+
+        <meta name="csrf" content="{{ csrf_token }}">
+        <link href="{% static "core/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "core/chosen/chosen.css" %}" rel="stylesheet">
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+       <!-- <script src="{% static "core/chosen/chosen.jquery.js" %}"></script>-->
+        <link rel="stylesheet" type="text/css" href="{% static "base.css" %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <script
+              src="https://code.jquery.com/jquery-3.2.1.min.js"
+              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</head>
+
+{% block menu %}
+<nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <a class="navbar-brand" href="{% url "main"  %}">Home</a>
+            </div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url "blogs:blogview"  %}">Blogs</a></li>
+      </ul>
+
+        <ul class="nav navbar-nav">
+            <li><a href="{% url "categories:category_list" %}">Categories</a></li>
+        </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.is_anonymous %}<li><a href="{% url "login"  %}">Login</a></li>{% endif %}
+        {% if user.is_anonymous %}<li><a href="{% url "register"  %}">Register</a></li>{% endif %}
+     {% if user.is_authenticated %}<li><a href="{% url "logout"  %}">Logout</a>{% endif %}</li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{% endblock %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 col-md-12">
+{% block title %}
+  <h1>This is my site</h1>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="dialogBody">
+          Body
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Copyright.</span>
+      </div>
+    </footer>
+
+<!--<script src="{% static "core/js/base.js" %}"></script>-->
+<script src="{% static "core/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+<script src="{% static "core/bootstrap/js/base.js" %}" type="text/javascript"></script>
+<script src="{% static "core/chosen/chosen.jquery.js" %}"></script>
