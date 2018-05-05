@@ -1,6 +1,0 @@
-<form data-success-container-id="dialogBody" data-formtype="ajaxForm" action="{% url "posts:editpost" pk=post.pk%}" method="post">
-     {{ form }}
-     {% csrf_token %}
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <input type="submit" class="btn btn-primary" value="Save">
-</form>
